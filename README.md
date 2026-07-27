@@ -1,0 +1,346 @@
+# ProductHub
+
+A modern product inventory management dashboard built with React, TypeScript, Vite, and Docker.
+
+ProductHub provides a clean, responsive interface for managing products, monitoring inventory levels, adjusting stock, searching and filtering products, and tracking recent inventory activity.
+
+---
+
+## Overview
+
+ProductHub was developed as a frontend inventory management application with a focus on reusable React architecture, type safety, responsive UI design, inventory workflows, and production-ready containerization.
+
+The application provides a centralized dashboard where users can monitor inventory status and perform common product-management operations through an intuitive interface.
+
+---
+
+## Features
+
+### Dashboard
+
+- Inventory overview dashboard
+- Total product count
+- In-stock product statistics
+- Low-stock monitoring
+- Out-of-stock monitoring
+- Recent inventory activity
+- Product search
+- Quick product management actions
+
+### Product Management
+
+- Add new products
+- Edit existing products
+- View complete product details
+- Delete products with confirmation
+- Search products
+- Filter products by status
+- Filter products by category
+- Dynamic product icons
+- Product SKU management
+- Price and stock information
+
+### Inventory Management
+
+- Dedicated stock adjustment workflow
+- Add stock
+- Remove stock
+- Real-time stock preview
+- Automatic inventory status calculation
+- Prevention of negative stock values
+- Low-stock and out-of-stock indicators
+- Stock adjustment validation
+
+### User Experience
+
+- Unsaved-change detection
+- Confirmation before discarding stock changes
+- Confirmation before deleting products
+- Modal-based product workflows
+- Responsive dashboard layout
+- Clear validation and feedback states
+- Accessible action controls
+- Consistent enterprise-style interface
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- CSS
+- Lucide React
+
+### Deployment
+
+- Docker
+- Nginx
+
+### Development Tools
+
+- Git
+- GitHub
+- npm
+- VS Code
+
+---
+
+## Application Architecture
+
+```text
+Browser
+   |
+   v
+Docker Container
+   |
+   v
+Nginx
+   |
+   v
+React Production Build
+   |
+   v
+ProductHub Dashboard
+```
+
+Nginx serves the optimized Vite production build from inside a lightweight Docker container.
+
+---
+
+## Project Structure
+
+```text
+producthub/
+|
+|-- README.md
+|
+`-- frontend/
+    |
+    |-- public/
+    |
+    |-- src/
+    |   |
+    |   |-- components/
+    |   |   |-- dashboard/
+    |   |   |-- layout/
+    |   |   `-- products/
+    |   |
+    |   |-- context/
+    |   |-- layouts/
+    |   |-- pages/
+    |   |-- types/
+    |   `-- utils/
+    |
+    |-- Dockerfile
+    |-- nginx.conf
+    |-- package.json
+    |-- package-lock.json
+    |-- tsconfig.json
+    `-- vite.config.ts
+```
+
+---
+
+## Product Components
+
+The application is organized into reusable components including:
+
+- `ProductTable`
+- `ProductModal`
+- `ProductDetailsModal`
+- `DeleteProductModal`
+- `AdjustStockModal`
+- `CancelProductModal`
+- `StatCard`
+- `RecentActivity`
+- `Sidebar`
+- `DashboardLayout`
+
+This component-based architecture keeps product operations isolated and makes the application easier to maintain and extend.
+
+---
+
+## Inventory Status Logic
+
+ProductHub automatically determines inventory status based on available stock.
+
+```text
+Stock = 0
+→ Out of Stock
+
+Stock <= 10
+→ Low Stock
+
+Stock > 10
+→ In Stock
+```
+
+Stock adjustments immediately update the calculated inventory state within the application.
+
+---
+
+## Running the Project Locally
+
+Navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Vite will provide the local development URL in the terminal.
+
+---
+
+## Production Build
+
+Create an optimized production build with:
+
+```bash
+npm run build
+```
+
+The generated production files are stored inside:
+
+```text
+frontend/dist/
+```
+
+---
+
+## Docker Deployment
+
+ProductHub can be served through Nginx inside Docker.
+
+First generate the production build:
+
+```bash
+npm run build
+```
+
+Build the Docker image:
+
+```bash
+docker build -t producthub-frontend .
+```
+
+Run the container:
+
+```bash
+docker run -d \
+  --name producthub-frontend-container \
+  -p 8080:80 \
+  producthub-frontend
+```
+
+Open the application at:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## Docker Architecture
+
+The Docker image uses Nginx to serve the generated frontend production files.
+
+```text
+Source Code
+    |
+    v
+npm run build
+    |
+    v
+dist/
+    |
+    v
+Docker Image
+    |
+    v
+Nginx
+    |
+    v
+Port 8080
+    |
+    v
+Browser
+```
+
+---
+
+## Production Verification
+
+The project has been validated using the TypeScript compiler and Vite production build pipeline.
+
+```bash
+npm run build
+```
+
+The final build completes successfully with the production assets generated by Vite.
+
+The application has also been successfully packaged into a Docker image and verified while running through an Nginx container.
+
+---
+
+## Key Learnings
+
+Developing ProductHub provided practical experience in designing a structured React and TypeScript application using reusable components and centralized state management. Building product creation, editing, deletion, product-detail viewing, filtering, and inventory adjustment workflows helped reinforce component communication, state updates, form handling, validation, and TypeScript interface design.
+
+The inventory adjustment workflow provided additional experience with business-rule implementation. ProductHub dynamically calculates stock changes, prevents invalid negative inventory values, updates inventory status, and protects users from accidentally discarding unfinished changes.
+
+The project also provided hands-on experience with production deployment. The React application was compiled using Vite, packaged into a Docker image, and served through Nginx. This helped bridge the gap between frontend development and production-oriented deployment workflows.
+
+---
+
+## Future Enhancements
+
+Potential future improvements include:
+
+- REST API integration
+- Persistent database storage
+- User authentication
+- Role-based access control
+- Product image uploads
+- Inventory analytics
+- Exportable inventory reports
+- Docker Compose deployment
+- Automated CI/CD pipeline
+
+---
+
+## Project Status
+
+**Frontend Development:** Complete  
+**Production Build:** Complete  
+**Docker Deployment:** Complete  
+**Nginx Configuration:** Complete  
+**GitHub Repository:** Active
+
+---
+
+## Author
+
+**Gokulnath**
+
+Full Stack Developer Intern
+
+---
+
+## License
+
+This project was developed for learning, portfolio, and internship purposes.
