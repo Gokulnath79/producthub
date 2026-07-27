@@ -1,0 +1,237 @@
+.cancel-product-modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.cancel-product-modal {
+  width: 100%;
+  max-width: 440px;
+
+  overflow: hidden;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 8px 24px rgba(15, 23, 42, 0.1);
+
+  animation: cancel-product-modal-enter 160ms ease-out;
+}
+
+.cancel-product-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 22px 22px 0;
+}
+
+.cancel-product-modal__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  color: #d97706;
+  background: #fffbeb;
+
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+}
+
+.cancel-product-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  color: var(--color-text-muted);
+  background: transparent;
+
+  border: 0;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.cancel-product-modal__close:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-secondary);
+}
+
+.cancel-product-modal__close:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.16);
+  outline-offset: 2px;
+}
+
+.cancel-product-modal__content {
+  padding: 16px 22px 22px;
+}
+
+.cancel-product-modal__content h2 {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.3px;
+}
+
+.cancel-product-modal__content p {
+  margin: 9px 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.cancel-product-modal__warning {
+  margin-top: 16px;
+  padding: 11px 13px;
+
+  color: #92400e;
+  background: #fffbeb;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  border: 1px solid #fde68a;
+  border-radius: 9px;
+}
+
+.cancel-product-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 16px 22px;
+
+  background: var(--color-surface-secondary);
+
+  border-top: 1px solid var(--color-border-light);
+}
+
+.cancel-product-modal__keep,
+.cancel-product-modal__confirm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0 15px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  border: 0;
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.cancel-product-modal__keep {
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+}
+
+.cancel-product-modal__keep:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-secondary);
+}
+
+.cancel-product-modal__confirm {
+  color: #ffffff;
+  background: #dc2626;
+
+  box-shadow: 0 1px 2px rgba(220, 38, 38, 0.18);
+}
+
+.cancel-product-modal__confirm:hover {
+  background: #b91c1c;
+
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.18);
+}
+
+.cancel-product-modal__confirm:active,
+.cancel-product-modal__keep:active {
+  transform: translateY(1px);
+}
+
+.cancel-product-modal__keep:focus-visible,
+.cancel-product-modal__confirm:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.16);
+  outline-offset: 2px;
+}
+
+@keyframes cancel-product-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .cancel-product-modal__overlay {
+    padding: 16px;
+  }
+
+  .cancel-product-modal__header {
+    padding: 20px 18px 0;
+  }
+
+  .cancel-product-modal__content {
+    padding: 14px 18px 20px;
+  }
+
+  .cancel-product-modal__footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+
+    padding: 14px 18px;
+  }
+
+  .cancel-product-modal__keep,
+  .cancel-product-modal__confirm {
+    width: 100%;
+  }
+}

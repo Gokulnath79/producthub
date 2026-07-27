@@ -1,0 +1,145 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+
+  width: var(--sidebar-width);
+  height: 100vh;
+
+  padding: 24px 16px;
+
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  height: 40px;
+  padding: 0 8px;
+}
+
+.sidebar__brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  color: #ffffff;
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+.sidebar__brand-name {
+  color: var(--color-text-primary);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.sidebar__navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 34px;
+}
+
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 44px;
+  padding: 0 12px;
+
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.sidebar__nav-item:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-secondary);
+}
+
+.sidebar__nav-item--active {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.sidebar__nav-item--active:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.sidebar__footer {
+  margin-top: auto;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--color-border-light);
+}
+
+.sidebar__profile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 8px;
+}
+
+.sidebar__avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  border-radius: 50%;
+}
+
+.sidebar__profile-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebar__profile-name {
+  overflow: hidden;
+
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar__profile-role {
+  margin-top: 2px;
+
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
